@@ -12,14 +12,21 @@ return {
   lazy = false,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>e', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>b', ':Neotree buffers<CR>', desc = 'NeoTree buffers', silent = true },
+    -- use w to open the document symboles
+    { '<leader><tab>', ':Neotree toggle document_symbols right<CR>', desc = 'NeoTree buffers', silent = true },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['<leader>e'] = 'close_window',
+          ['l'] = 'open_with_window_picker',
         },
       },
     },
+    sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
   },
 }
